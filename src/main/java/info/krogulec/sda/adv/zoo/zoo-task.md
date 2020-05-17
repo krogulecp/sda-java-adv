@@ -25,8 +25,12 @@
    możliwość jedzenia (eat). Wystarczy, by metoda ustawiała czas posiłku na obecną datę.
   
 6. Niedźwiedź czarny waży (getWeight) 50 kg, niedźwiedź
-   brunatny - 100 kg, a czarny - 200 kg.
+   brunatny - 100 kg, a polarny - 200 kg.
    Waga powinna być zwracana jako int.
+   
+   alt. Jak zwierze zjada posiłek to jego waga rośnie o jakąś wartość 
+   - w przypadku niedźwiedzia - 1kg dla czarnego, 2kg dla brunatengo
+    i 3 kg dla polarnego.
    
 7. Oczywiście nasze zoo jest tylko wirtualne, więc musimy dodać
    możliwość oglądania naszych niedźwiedzi. Każdy z nich

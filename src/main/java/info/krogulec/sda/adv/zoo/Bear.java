@@ -1,6 +1,5 @@
 package info.krogulec.sda.adv.zoo;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.Period;
 
