@@ -1,8 +1,8 @@
 package info.krogulec.sda.adv.zoo;
 
 public class PolarBear extends Bear {
-    public PolarBear(int weight) {
-        super(weight);
+    public PolarBear() {
+        super(200);
     }
 
     @Override

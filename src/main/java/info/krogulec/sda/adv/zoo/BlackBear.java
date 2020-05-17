@@ -2,8 +2,8 @@ package info.krogulec.sda.adv.zoo;
 
 public class BlackBear extends Bear{
 
-    public BlackBear(int weight) {
-        super(weight);
+    public BlackBear() {
+        super(50);
     }
 
     @Override
