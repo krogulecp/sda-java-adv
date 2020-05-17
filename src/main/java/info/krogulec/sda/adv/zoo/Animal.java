@@ -5,10 +5,9 @@ import java.time.LocalDate;
 
 public abstract class Animal implements Alive, Eater{
 
-    private final int MAX_ALIVE_DAYS_WITHOUT_EATING = 10;
+    LocalDate lastEatingDay;
 
     private int weight;
-    LocalDate lastEatingDay;
 
 
     public Animal(int weight) {
@@ -17,11 +16,6 @@ public abstract class Animal implements Alive, Eater{
 
     public int getWeight() {
         return weight;
-    }
-
-    @Override
-    public boolean isAlive() {
-        return Duration.between(LocalDate.now(), lastEatingDay).toDays() < MAX_ALIVE_DAYS_WITHOUT_EATING ;
     }
 
     @Override
