@@ -4,4 +4,9 @@ public class BrownBear extends Bear{
     public BrownBear(int weight) {
         super(weight);
     }
+
+    @Override
+    public void eat() {
+
+    }
 }

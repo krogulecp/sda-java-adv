@@ -1,23 +1,23 @@
 package info.krogulec.sda.adv.zoo.zoo;
 
-abstract class Animal implements Alive{
+import java.time.Duration;
+import java.time.LocalDate;
+
+abstract class Animal implements Alive, Eater{
     private  int weight;
+    LocalDate lastEatingDay;
 
     public Animal(int weight) {
         this.weight = weight;
     }
 
     @Override
-    public boolean isAlive() {
-        return false;
+    public void eat() {
+        lastEatingDay = LocalDate.now();
     }
 
     public int getWeight() {
         return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
     }
 
 }
