@@ -1,4 +1,4 @@
-#Zadanie - stworzenie zoo zgodnie z wytycznymi
+git pull#Zadanie - stworzenie zoo zgodnie z wytycznymi
 
 1. Naszym zadaniem będzie stworzenie aplikacji, która będzie
    modelowała zoo. Będziemy krok po kroku rozbudowywali
