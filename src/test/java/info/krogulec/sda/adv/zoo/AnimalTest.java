@@ -14,7 +14,7 @@ class AnimalTest {
     @Test
     void isAlive() {
         //given
-        Animal polarBear = new PolarBear();
+        Animal polarBear = new PolarBear(200);
         polarBear.eat();
         //when
         boolean alive = polarBear.isAlive();
@@ -26,7 +26,7 @@ class AnimalTest {
     @Test
     void border_case_10_days_after_feeding() {
         //given
-        Animal polarBear = new PolarBear();
+        Animal polarBear = new PolarBear(200);
         polarBear.lastEatingDay = LocalDate.now().minusDays(10);
         //when
         boolean alive = polarBear.isAlive();
@@ -38,7 +38,7 @@ class AnimalTest {
     @Test
     void border_case_11_days_after_feeding() {
         //given
-        Animal polarBear = new PolarBear();
+        Animal polarBear = new PolarBear(200);
         polarBear.lastEatingDay = LocalDate.now().minusDays(11);
         //when
         boolean alive = polarBear.isAlive();

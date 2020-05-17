@@ -13,10 +13,10 @@ public class BlackBear extends Bear{
         System.out.println("Black bear is attacking and hurts the victim!");
     }
 
-    @Override
-    public void display() {
-        System.out.println("I am a Black Bear. My weight is " + getWeight() + " kgs.");
-    }
+//    @Override
+//    public void display() {
+//        System.out.println("I am a Black Bear. My weight is " + getWeight() + " kgs.");
+//    }
 
     @Override
     public void eat() {

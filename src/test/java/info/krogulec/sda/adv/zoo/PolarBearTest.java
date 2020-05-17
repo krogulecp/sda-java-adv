@@ -10,7 +10,7 @@ class PolarBearTest {
     @Test
     void should_gain_weight_after_meal() {
         //given
-        Bear polarBear = new PolarBear(); // weight 200
+        Bear polarBear = new PolarBear(200); // weight 200
         polarBear.eat();
 
         //when

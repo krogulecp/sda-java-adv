@@ -10,7 +10,7 @@ class BrownBearTest {
     @Test
     void should_gain_weight_after_meal() {
         //given
-        Bear brownBear = new BrownBear(); // weight 100
+        Bear brownBear = new BrownBear(100); // weight 100
         brownBear.eat();
 
         //when
