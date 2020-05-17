@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class PolarBear extends Bear{
     public PolarBear(int weight) {
-        super(weight);
+        super(200);
     }
 
     @Override

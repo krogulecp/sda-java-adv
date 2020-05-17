@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 
 abstract class Animal implements Alive, Eater{
-    private  int weight;
+    protected   int weight;
     LocalDate lastEatingDay;
 
     public Animal(int weight) {

@@ -16,4 +16,6 @@ public abstract class Bear extends Animal{
         int days = Period.between(lastEatingDay, LocalDate.now()).getDays();
         return  days <= Max_Alive_Days_Without_Eating;
     }
+
+
 }

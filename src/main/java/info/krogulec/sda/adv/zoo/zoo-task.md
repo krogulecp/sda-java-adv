@@ -28,6 +28,9 @@
    brunatny - 100 kg, a czarny - 200 kg.
    Waga powinna być zwracana jako int.
    
+   alt. Jak zwierze zjada posiłek to jego waga rośnie o jakomś wartość:
+   1kg czarny niedżwiedż 2kg dla brunatenego i 3kg dla polarnego.
+   
 7. Oczywiście nasze zoo jest tylko wirtualne, więc musimy dodać
    możliwość oglądania naszych niedźwiedzi. Każdy z nich
    powinien mieć możliwośc wyświetlenia (display).

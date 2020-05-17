@@ -41,4 +41,14 @@ public class AnimalTest {
         //then
         assertThat(alive).isFalse();
     }
+
+    @Test
+    void should_return_wrong_weight(){
+        //given
+        Animal polarBear = new PolarBear(123);
+
+        //when
+
+        //then
+    }
 }
