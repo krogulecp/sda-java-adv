@@ -4,7 +4,7 @@ public class BlackBear extends Bear{
     private static final int GAIN_WEIGHT_MEAL_VALUE = 1;
 
     public BlackBear(int weight) {
-        super(50);
+        super(weight);
     }
 
     @Override
