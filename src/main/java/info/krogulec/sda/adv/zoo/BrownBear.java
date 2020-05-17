@@ -7,11 +7,6 @@ public class BrownBear extends Bear {
     }
 
     @Override
-    public boolean isAlive() {
-        return false;
-    }
-
-    @Override
     public void attack() {
         System.out.println("Brown bear is attacking!");
     }
