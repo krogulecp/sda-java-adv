@@ -4,7 +4,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.Period;
 
-public abstract class Bear extends Animal implements Attacker{
+public abstract class Bear extends Animal implements Attacker, Introduce {
 
     private static final int MAX_ALIVE_DAYS_WITHOUT_EATING = 10;
 

@@ -7,7 +7,7 @@ public abstract class Animal implements Alive, Eater{
 
     LocalDate lastEatingDay;
 
-    private int weight;
+    protected int weight;
 
 
     public Animal(int weight) {
