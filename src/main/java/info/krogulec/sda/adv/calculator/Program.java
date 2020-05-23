@@ -10,12 +10,12 @@ class Program {
     private final Set<OperationProcessor> operationProcessors;
     private final UserInterface userInterface;
 
-    public Program(Set<OperationProcessor> operationProcessors) {
+    public Program(Set<OperationProcessor> operationProcessors, UserInterface userInterface) {
         this.operationProcessors = operationProcessors;
-        this.userInterface = new ConsoleUserInterface();
+        this.userInterface = userInterface;
     }
 
     public void run() {
-
+        //TODO Zaimplementować metodę
     }
 }
