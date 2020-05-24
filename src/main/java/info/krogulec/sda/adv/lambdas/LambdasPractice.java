@@ -1,8 +1,11 @@
 package info.krogulec.sda.adv.lambdas;
 
+import javax.print.attribute.standard.MediaSize;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * Do wszystkich zadań piszemy najpierw odpowiedni test
@@ -17,51 +20,102 @@ class LambdasPractice {
 
     public int countAllInts(){
         //TODO Policzyć wszystkie elementy w liście INTS
-        return 0;
+
+        //return INTS.size();
+
+        // warto sprawdzić czy long nie przekroczył inta
+        return (int) INTS.stream()
+                .count();
     }
 
     public int sumAllInts(){
         //TODO Zsumować wszystkie elementy w liście INTS
-        return 0;
+        int sum = 0;
+
+//        for (int i : INTS) {
+//            sum+= i;
+//        }
+
+        sum = INTS.stream()
+                // jawny mapping na int
+//                .mapToInt(i -> i.intValue()).sum();
+                // lub auto unboxing:
+                .mapToInt(i -> i).sum();
+
+        //ogólny reduce:
+        // reduce to operacja terminalna (kończy operacje na strumieniu, zwraca wartość)
+        // są też opearacje pośrednie np. filter()
+        sum = 0;
+        sum = INTS.stream()
+                .reduce(0, (a,b) -> a + b);
+
+        //z referencją do metody (metody sum z klasy Integer
+        sum = 0;
+        sum = INTS.stream()
+                .reduce(0, Integer::sum);
+
+
+        return sum;
     }
 
     public List<Integer> findAllEvenInts(){
         //TODO Znaleźć wszystkie parzyste numery w liście INTS
-        return null;
+        return INTS.stream()
+                .filter(i -> (i % 2 == 0))
+                .collect(Collectors.toList());
     }
 
     public int sumAllEvenInts(){
         //TODO Zsumować wszystkie parzyste numery w liście INTS
-        return 0;
+        return INTS.stream()
+                .filter(i -> (i % 2 == 0))
+                .reduce(0, Integer::sum);
     }
 
     public Map<String, Integer> groupLettersInNamesCount(){
         //TODO Zbudować mapę, gdzie kluczem będzie imię z setu NAMES, a wartością liczba liter w tym imieniu
-        return null;
+        return NAMES.stream()
+                .collect(Collectors.toMap(name -> name, name -> name.length()));
+                // lub z użyciem Function.identity() :
+//                .collect(Collectors.toMap(Function.identity(), name -> name.length()));
+
     }
 
     public int countLettersInAllNames(){
         //TODO Zsumować wszystkie litery we wszystkich imionach NAMES
-        return 0;
+        return NAMES.stream()
+//                .mapToInt(name -> name.length())
+                .mapToInt(String::length)
+                .sum();
     }
 
     public int findLowestNumer(){
         //TODO Znaleźć najmniejszą liczbę z NUMBERS
-        return 0;
+        return INTS.stream()
+                .mapToInt(i -> i)
+                .min()
+                .orElseThrow(RuntimeException::new);
     }
 
     public String findShortestName(){
         //TODO Znaleźć najkrótsze imię z setu NAMES
-        return null;
+        return NAMES.stream()
+                //implementujemy swój komparator, bo nie chcemy sortować po litrach tylko po długości
+                .sorted((a,b) -> Integer.valueOf(b.length()).compareTo(Integer.valueOf(b.length())))
+                .findFirst()
+                .orElseThrow();
     }
 
     public List<Integer> pickFirstFiveElements(){
         //TODO Stworzyć listę z pięciu pierwszych elementów w INTS
-        return null;
+        return INTS.stream()
+                .limit(5)
+                .collect(Collectors.toList());
     }
 
     public int sumAllNumbersInListOfLists(){
         //TODO zsumować wszystkie elementy w liście INTS_DEEP
+        //TODO użyć metody flatMap
         return 0;
     }
 }
