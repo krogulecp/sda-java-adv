@@ -3,6 +3,8 @@ package info.krogulec.sda.adv.lambdas;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * Do wszystkich zadań piszemy najpierw odpowiedni test
@@ -41,8 +43,9 @@ class LambdasPractice {
     }
 
     public List<Integer> findAllEvenInts(){
-        //TODO Znaleźć wszystkie parzyste numery w liście INTS
-        return null;
+        return INTS.stream()
+                .filter(number -> number%2 == 0)
+                .collect(Collectors.toList());
     }
 
     public int sumAllEvenInts(){
