@@ -8,7 +8,8 @@ import java.util.Set;
 class Main {
     public static void main(String[] args) {
         //można również zrobić klasę znajdującą wszystkie implementacje interfejsu OpperationProcessor i je tutaj dostarczyć*
-        new Program(Set.of(new AdditionProcessor(), new SubtracionProcessor(), new MultiplicationProcessor(), new DivisionProcessor()),
+        //TODO tutaj wykorzystać klasę ProcessorsProvider
+        new Program(Set.of(new SubtracionProcessor(), new MultiplicationProcessor(), new DivisionProcessor()),
                 new ConsoleUserInterface(System.in, System.out)).run();
     }
 }

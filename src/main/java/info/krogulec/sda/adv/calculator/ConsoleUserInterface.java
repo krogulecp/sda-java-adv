@@ -1,7 +1,8 @@
 package info.krogulec.sda.adv.calculator;
 
 import java.io.*;
-import java.util.Arrays;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * @author krogulecp
@@ -27,8 +28,10 @@ class ConsoleUserInterface implements UserInterface {
     }
 
     @Override
-    public Operation provideOperation() {
-        out.println("Fill operation. Possible values are: " + Arrays.toString(Operation.values()));
+    public Operation provideOperation(Set<OperationProcessor> operationProcessors) {
+        out.println("Fill operation. Possible values are: " + operationProcessors.stream()
+        .map(operationProcessor -> operationProcessor.getOperation().name())
+        .collect(Collectors.joining(" | ")));
         try {
             return Operation.valueOf(in.readLine());
         } catch (Exception e) {
@@ -43,7 +46,29 @@ class ConsoleUserInterface implements UserInterface {
 
     @Override
     public boolean shouldContinue() {
-        //TODO Zaimplementować metodę
-        return false;
+        out.println("Czy kontynuować? Możliwe wartości y/n");
+        String input = null;
+        try {
+            input = in.readLine();
+        } catch (Exception e) {
+            throw new InputFormatException("Wprowadzono niepoprawną wartość");
+        }
+
+        boolean ctn = true;
+        boolean output = false;
+
+        while(ctn){
+            if ("y".equals(input)){
+                output = true;
+                ctn = false;
+            } else if ("n".equals(input)){
+                output = false;
+                ctn = false;
+            } else {
+                out.println("Podaj wartość y lub n");
+                ctn = true;
+            }
+        }
+        return output;
     }
 }

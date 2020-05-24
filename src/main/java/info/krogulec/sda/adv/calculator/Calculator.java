@@ -24,7 +24,9 @@ class Calculator {
     }
 
     private OperationProcessor provideProcessor() {
-        //TODO Znaleźć odpowiedni procesor z dostarczonego seta
-        return null;
+        return operationProcessors.stream()
+                .filter(operationProcessor -> operationProcessor.getOperation().equals(operation))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Brak procesora dla danej operacji"));
     }
 }
