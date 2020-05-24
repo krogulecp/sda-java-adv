@@ -13,4 +13,9 @@ class LambdasPracticeTest {
     void should_count_all_ints(){
         assertEquals(11, new LambdasPractice().countAllInts());
     }
+
+    @Test
+    void should_sum_all_ints(){
+        assertEquals(66, new LambdasPractice().sumAllInts());
+    }
 }

@@ -28,8 +28,16 @@ class LambdasPractice {
     }
 
     public int sumAllInts(){
-        //TODO Zsumować wszystkie elementy w liście INTS
-        return 0;
+
+        int sumVer1 = INTS.stream()
+                .mapToInt(e -> e)
+                .sum();
+
+        Integer sumVer2 = INTS.stream()
+                .reduce(0, Integer::sum);
+
+        return INTS.stream()
+                .reduce(0, (a, b) -> a + b);
     }
 
     public List<Integer> findAllEvenInts(){
