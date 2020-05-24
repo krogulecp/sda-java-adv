@@ -19,7 +19,7 @@ class LambdasPractice {
     public static final List<List<Integer>> INTS_DEEP = List.of(List.of(1,2,3), List.of(4,5,6), List.of(7,8,9));
 
     public int countAllInts(){
-        //TODO Policzyć wszystkie elementy w liście INTS
+        //Zad: Policzyć wszystkie elementy w liście INTS
 
         //return INTS.size();
 
@@ -29,7 +29,7 @@ class LambdasPractice {
     }
 
     public int sumAllInts(){
-        //TODO Zsumować wszystkie elementy w liście INTS
+        //ZAd: Zsumować wszystkie elementy w liście INTS
         int sum = 0;
 
 //        for (int i : INTS) {
@@ -59,21 +59,21 @@ class LambdasPractice {
     }
 
     public List<Integer> findAllEvenInts(){
-        //TODO Znaleźć wszystkie parzyste numery w liście INTS
+        //Zad: Znaleźć wszystkie parzyste numery w liście INTS
         return INTS.stream()
                 .filter(i -> (i % 2 == 0))
                 .collect(Collectors.toList());
     }
 
     public int sumAllEvenInts(){
-        //TODO Zsumować wszystkie parzyste numery w liście INTS
+        //Zad: Zsumować wszystkie parzyste numery w liście INTS
         return INTS.stream()
                 .filter(i -> (i % 2 == 0))
                 .reduce(0, Integer::sum);
     }
 
     public Map<String, Integer> groupLettersInNamesCount(){
-        //TODO Zbudować mapę, gdzie kluczem będzie imię z setu NAMES, a wartością liczba liter w tym imieniu
+        //Zad: Zbudować mapę, gdzie kluczem będzie imię z setu NAMES, a wartością liczba liter w tym imieniu
         return NAMES.stream()
                 .collect(Collectors.toMap(name -> name, name -> name.length()));
                 // lub z użyciem Function.identity() :
@@ -82,7 +82,7 @@ class LambdasPractice {
     }
 
     public int countLettersInAllNames(){
-        //TODO Zsumować wszystkie litery we wszystkich imionach NAMES
+        //Zad: Zsumować wszystkie litery we wszystkich imionach NAMES
         return NAMES.stream()
 //                .mapToInt(name -> name.length())
                 .mapToInt(String::length)
@@ -90,7 +90,7 @@ class LambdasPractice {
     }
 
     public int findLowestNumer(){
-        //TODO Znaleźć najmniejszą liczbę z NUMBERS
+        //Zad: Znaleźć najmniejszą liczbę z NUMBERS
         return INTS.stream()
                 .mapToInt(i -> i)
                 .min()
@@ -98,7 +98,7 @@ class LambdasPractice {
     }
 
     public String findShortestName(){
-        //TODO Znaleźć najkrótsze imię z setu NAMES
+        //Zad: Znaleźć najkrótsze imię z setu NAMES
         return NAMES.stream()
                 //implementujemy swój komparator, bo nie chcemy sortować po litrach tylko po długości
                 .sorted((a,b) -> Integer.valueOf(b.length()).compareTo(Integer.valueOf(b.length())))
@@ -107,15 +107,19 @@ class LambdasPractice {
     }
 
     public List<Integer> pickFirstFiveElements(){
-        //TODO Stworzyć listę z pięciu pierwszych elementów w INTS
+        //Zad: Stworzyć listę z pięciu pierwszych elementów w INTS
         return INTS.stream()
                 .limit(5)
                 .collect(Collectors.toList());
     }
 
     public int sumAllNumbersInListOfLists(){
-        //TODO zsumować wszystkie elementy w liście INTS_DEEP
-        //TODO użyć metody flatMap
-        return 0;
+        //Zad: zsumować wszystkie elementy w liście INTS_DEEP
+        //hint: użyć metody flatMap
+
+        return INTS_DEEP.stream()
+                .flatMap(upper -> upper.stream())
+                .mapToInt(num -> num)
+                .sum();
     }
 }

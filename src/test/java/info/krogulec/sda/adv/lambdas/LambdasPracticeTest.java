@@ -74,8 +74,13 @@ class LambdasPracticeTest {
     }
 
     @Test
-    void shoult_get_5_first_ints() {
+    void should_get_5_first_ints() {
         assertThat(lambdasPractice.pickFirstFiveElements()).containsExactlyInAnyOrder(1,3,5,7,9);
+    }
+
+    @Test
+    void should_return_sum_of_all_lists_of_lists() {
+        assertEquals(45,lambdasPractice.sumAllNumbersInListOfLists());
     }
 
 }
