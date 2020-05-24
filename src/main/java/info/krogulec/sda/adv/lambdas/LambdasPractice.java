@@ -16,8 +16,15 @@ class LambdasPractice {
     public static final List<List<Integer>> INTS_DEEP = List.of(List.of(1,2,3), List.of(4,5,6), List.of(7,8,9));
 
     public int countAllInts(){
-        //TODO Policzyć wszystkie elementy w liście INTS
-        return 0;
+        //Warto sprawdzić, czy nie będzie przekroczona wartość maksymalna inta i obsłużyć tę sytuację
+        long count = INTS.stream()
+                .count();
+
+        if (count >= Integer.MAX_VALUE){
+            throw new RuntimeException("Too large number");
+        } else {
+            return (int) count;
+        }
     }
 
     public int sumAllInts(){
