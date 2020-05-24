@@ -3,8 +3,10 @@ package info.krogulec.sda.adv.lambdas;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Do wszystkich zadań piszemy najpierw odpowiedni test
@@ -49,37 +51,45 @@ class LambdasPractice {
     }
 
     public int sumAllEvenInts(){
-        //TODO Zsumować wszystkie parzyste numery w liście INTS
-        return 0;
+        return INTS.stream()
+                .filter(number -> number%2 == 0)
+                .reduce(0, Integer::sum);
     }
 
     public Map<String, Integer> groupLettersInNamesCount(){
-        //TODO Zbudować mapę, gdzie kluczem będzie imię z setu NAMES, a wartością liczba liter w tym imieniu
-        return null;
+        return NAMES.stream()
+                .collect(Collectors.toMap(Function.identity(), name -> name.length()));
     }
 
     public int countLettersInAllNames(){
-        //TODO Zsumować wszystkie litery we wszystkich imionach NAMES
-        return 0;
+        return NAMES.stream()
+                .mapToInt(String::length)
+                .sum();
     }
 
     public int findLowestNumer(){
-        //TODO Znaleźć najmniejszą liczbę z NUMBERS
-        return 0;
+        return INTS.stream()
+                .mapToInt(e -> e)
+                .min()
+                .orElseThrow();
     }
 
     public String findShortestName(){
-        //TODO Znaleźć najkrótsze imię z setu NAMES
-        return null;
+        return NAMES.stream()
+                .sorted((a,b) -> Integer.valueOf(a.length()).compareTo(Integer.valueOf(a.length())))
+                .findFirst()
+                .orElseThrow();
     }
 
     public List<Integer> pickFirstFiveElements(){
-        //TODO Stworzyć listę z pięciu pierwszych elementów w INTS
-        return null;
+        return INTS.stream()
+                .limit(5)
+                .collect(Collectors.toList());
     }
 
     public int sumAllNumbersInListOfLists(){
         //TODO zsumować wszystkie elementy w liście INTS_DEEP
+        //TODO trzeba użyć metody flatMap
         return 0;
     }
 }
