@@ -6,7 +6,7 @@ package info.krogulec.sda.adv.calculator;
 class DivisionProcessor implements OperationProcessor {
     @Override
     public double process(int a, int b) {
-        return a/b;
+        return a/ (double) b;
     }
 
     @Override
